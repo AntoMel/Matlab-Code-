@@ -40,6 +40,7 @@ price_EUR_USD = timetable(Timestamp,EUR_USD_price);
 Daily_Volatility = retime(EUR_USD_return,'daily','sum');
 
 % calculte absolute vaule of volatility
+% diese Schleife dauert extrem lange, ca. 25 min....
 
 for i = 1:height(EUR_USD_return)
     func = @sum;
