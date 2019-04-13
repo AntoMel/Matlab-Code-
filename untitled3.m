@@ -70,6 +70,8 @@ monthly_return =  retime(tt_minutely_return,'monthly','mean');
 
 monthly_spread =  retime(tt_minutely_spread,'monthly','mean');
 
+% Ich will hier immer fortlaufen Preis von t - (t-Delata10 Minuten) berechnen
+
 for i = size(minutely_price,1)
     tenminutes_return(i,1) = minutely_price(i:end,1) - minutely_price(i-10:(end-10),1);
 end 
