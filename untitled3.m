@@ -72,6 +72,13 @@ monthly_spread =  retime(tt_minutely_spread,'monthly','mean');
 
 % Ich will hier immer fortlaufen Preis von t - (t-Delata10 Minuten) berechnen
 
+
+% Firstly allocation of target array if using for loops! Otherwise you get problems
+% target_array = zeros(size(minutely_price,1),1)
+% I think, a for loop is in such a case not meaningful. A concatenation of arrays is still better:
+target_array = minutely_price(1+10:end,1) - minutely_price(1:end-10,1)
+
 for i = size(minutely_price,1)
+    % This solution ca't work, beacuse you always create a array with length end-i (minutely_price(i:end,1)), subtract another array with length end-10 - (i-10) = end - i, which results in a vetor. But you assign it to a scalar (tenminutes_return(i,1)). Moreover, you want to access values which are not existing, for example if i = 1, you want to access in array minutely_price on position i-10 = -9 . This isnt defined. Can't work. You have to use if conditions.
     tenminutes_return(i,1) = minutely_price(i:end,1) - minutely_price(i-10:(end-10),1);
 end 
