@@ -19,7 +19,7 @@ sum_abs_vola = zeros(size(array_x));
             end
                
                    
-vola_ratio = abs_sum_vola/sum_abs_vola;
+vola_ratio = abs_sum_vola ./ sum_abs_vola;
 
 end
 
