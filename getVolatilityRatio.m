@@ -23,6 +23,8 @@ sum_abs_vola = zeros(size(array_x));
 
             % 1. I Would use the vector interpretation, suggested in volatility.m. The use of loops create much more functional overhead. Loops are easier to understand but not efficient. That means we have to look the computational implementation of convolutions. Do you know why neural nets are using convolutions instead of for loops....? Its a little bit more complicated but I can describe it in a personal talk
             % 2. You recompute the sums every single step in the loop. You should use temporary sums if working with loops. Add the next while subtract the last value. There are compututational limits to consider when working with large datasets. If there are more than one columns you have firstly to remove the second loop. Do you know what I mean?
+
+            % question: dimension of array x? Please define the dimension of array x, so that i can understand the complexity of scale.
                    
 vola_ratio = abs_sum_vola ./ sum_abs_vola;
 
